@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.dxkj.ejiaofei.activity.WalletActivity">
+
+    <include layout="@layout/layout_wallet_head"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The Wallet"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:text="钱包"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@drawable/minus_402x"
+            android:layout_marginTop="6dp"
+            android:scaleType="fitXY"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/wallet_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
+
+
+
+</LinearLayout>

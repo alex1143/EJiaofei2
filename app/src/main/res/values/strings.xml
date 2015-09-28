@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">My170</string>
+    <string name="hello_world">helloword</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_wallet">钱包</string>
+    <string name="title_activity_up_data_pass">修改密码</string>
+    <string name="title_activity_help">帮助</string>
+    <string name="title_activity_about">关于</string>
+
+
+    <string name="about">烟台市鼎信网络科技有限公司（简称“鼎信科技”）成立于2010年，是国内领先的便民电商系统开发商及服务提供商。鼎信科技致力于通过完善的技术解决方案和优质的市场资源，为企业提供专业的综合缴费产品及信息化服务，助力客户实现商业成功。
+    公司以“易缴费”为核心品牌，秉持“合作共赢、诚信至上”的经营理念，与国内众多知名品牌电商企业建立了良好、稳固的合作伙伴关系，同时致力于为全国千家中小缴费企业提供一站式专业解决方案，成就一流综合应用服务商。
+    公司凭借强大的合作网络、领先的技术、丰富的行业应用经验、专业规范的服务，保障我们能够以最快的速度向客户提供最好的产品及最新的行业解决方案，为客户提高竞争优势，带来合理化和最大化的收益，实现精彩的双赢。
+    未来我们将与全国中小用户共享鼎信的商业模式，成就综合缴费行业领先运营商。</string>
+
+    <string name="usehelp">感谢您下载使用我们的产品，进入系统后，请先使用手机号注册（手机号即为您的登陆账号），注册后，您可使用以下功能。</string>
+
+    <string name="shouye">这里提供所有充值的入口进入相应充值界面填写订单信息后，在确认界面选择支付方式（微信支付、余额支付）后，提交订单即可充值 。</string>
+
+    <string name="kefu">如果您对充值功能、订单查询有疑问 者对我们的产品有任何的建议，均可以通过这里来与我们联系。</string>
+
+    <string name="zhuce">如果您对充值功能、订单查询有疑问 者对我们的产品有任何的建议，均可以通过这里来与我们联系。</string>
+
+    <string name="dingdan">这里提供所有订单的查询这里显示所有已经填写过的订单信息，并且标有订单状态（充值成功、充值失败、处理中、去支付）。</string>
+
+    <string name="me">这里提供个人信息的编辑、余额（钱包）的显示、充值操作，以及修改密码的操作。 </string>
+
+    <string name="passwordabout">如果您需要设置密码，登陆后可在账户中心中通过修改密码设置，设置密码后退出APP再次登录，将需要密码验证。</string>
+
+    <string name="title_activity_user_news">个人信息</string>
+
+    <string name="title_activity_charge">ChargeActivity</string>
+
+    <string name="title_activity_regist">注册</string>
+
+    <string name = "activity_game">游戏充值</string>
+
+    <string name = "activity_phone">手机充值</string>
+
+    <string name = "activity_shuidianmei">水电煤</string>
+
+    <string name = "activity_guhua">固话充值</string>
+
+    <string name = "activity_kami">卡密充值</string>
+
+    <string name = "activity_liuliang">流量充值</string>
+
+    <string name = "activity_login">登录</string>
+
+    <string name = "activity_qq">Q币充值</string>
+
+    <string name = "activity_register">注册</string>
+
+
+</resources>
