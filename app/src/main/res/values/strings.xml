@@ -6,7 +6,10 @@
     <string name="title_activity_up_data_pass">修改密码</string>
     <string name="title_activity_help">帮助</string>
     <string name="title_activity_about">关于</string>
-
+    <string name="set_gesture_pattern">绘制解锁图案</string>
+    <string name="reset_gesture_code">重新设置手势密码</string>
+    <string name="forget_gesture_code">忘记密码</string>
+    <string name="use_other_account_login">其他账户登录</string>
 
     <string name="about">烟台市鼎信网络科技有限公司（简称“鼎信科技”）成立于2010年，是国内领先的便民电商系统开发商及服务提供商。鼎信科技致力于通过完善的技术解决方案和优质的市场资源，为企业提供专业的综合缴费产品及信息化服务，助力客户实现商业成功。
     公司以“易缴费”为核心品牌，秉持“合作共赢、诚信至上”的经营理念，与国内众多知名品牌电商企业建立了良好、稳固的合作伙伴关系，同时致力于为全国千家中小缴费企业提供一站式专业解决方案，成就一流综合应用服务商。
@@ -50,6 +53,8 @@
     <string name = "activity_qq">Q币充值</string>
 
     <string name = "activity_register">注册</string>
+    <string name="title_activity_lock">手势密码</string>
+    <string name="title_activity_cheak_lock">CheakLockActivity</string>
 
 
 </resources>

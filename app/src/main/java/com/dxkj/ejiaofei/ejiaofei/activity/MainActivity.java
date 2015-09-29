@@ -1,5 +1,6 @@
 package com.dxkj.ejiaofei.ejiaofei.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(MenuItem menuItem) {
             //点击NavigationView中定义的menu item时触发反应
             switch (menuItem.getItemId()) {
-                case R.id.menu_publicnews://暂时为qq登录
+                case R.id.menu_publicnews:                             //暂时为qq登录
                     QQAuth mqqAuth = QQAuth.createInstance("1104809073",MainActivity.this); // 10000000为你申请的APP_ID,mContext是上下文
                     WPA mWPA = new WPA(MainActivity.this, mqqAuth.getQQToken());
                     String ESQ = "2850314360";  //512821255为客服QQ号
@@ -117,11 +118,17 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                     break;
-                case R.id.menu_goods:
-                    mFtViewPager.setCurrentItem(1);
+                case R.id.menu_goods:                                 //暂时为设置手势密码
+                    Intent intent1 = new Intent();
+                    intent1.setClass(MainActivity.this, LockActivity.class);
+                    startActivity(intent1);
+//                    mFtViewPager.setCurrentItem(1);
                     break;
                 case R.id.menu_order:
-                    mFtViewPager.setCurrentItem(2);
+                    Intent intent2 = new Intent();
+                    intent2.setClass(MainActivity.this,CheakLockActivity.class);
+                    startActivity(intent2);
+//                    mFtViewPager.setCurrentItem(2);
                     break;
                 case R.id.menu_me:
                     mFtViewPager.setCurrentItem(3);
