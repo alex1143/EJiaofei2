@@ -8,7 +8,7 @@ import com.dxkj.ejiaofei.R;
 /**
  * 修改密码页面
  */
-public class UpDataPassActivity extends AppCompatActivity {
+public class ChangePwActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

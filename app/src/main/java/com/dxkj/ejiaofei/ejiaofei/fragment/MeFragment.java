@@ -14,7 +14,7 @@ import android.widget.ListView;
 import com.dxkj.ejiaofei.R;
 import com.dxkj.ejiaofei.ejiaofei.activity.AboutActivity;
 import com.dxkj.ejiaofei.ejiaofei.activity.HelpActivity;
-import com.dxkj.ejiaofei.ejiaofei.activity.UpDataPassActivity;
+import com.dxkj.ejiaofei.ejiaofei.activity.ChangePwActivity;
 import com.dxkj.ejiaofei.ejiaofei.activity.WalletActivity;
 import com.dxkj.ejiaofei.ejiaofei.adapter.MeListAdapter;
 
@@ -70,7 +70,7 @@ public class MeFragment extends Fragment {
                         break;
                     case 1:
                         Intent intent2 = new Intent();
-                        intent2.setClass(mContext, UpDataPassActivity.class);  //跳转修改密码
+                        intent2.setClass(mContext, ChangePwActivity.class);  //跳转修改密码
                         startActivity(intent2);
                         break;
                     case 2:

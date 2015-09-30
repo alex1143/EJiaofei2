@@ -82,7 +82,7 @@
             android:name=".ejiaofei.activity.ShuiDianMeiActivity"
             android:label="@string/activity_shuidianmei" />
         <activity
-            android:name=".ejiaofei.activity.UpDataPassActivity"
+            android:name=".ejiaofei.activity.ChangePwActivity"
             android:label="@string/title_activity_up_data_pass" />
         <activity
             android:name=".ejiaofei.activity.UserNewsActivity"
