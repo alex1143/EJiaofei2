@@ -55,6 +55,7 @@
     <string name = "activity_register">注册</string>
     <string name="title_activity_lock">手势密码</string>
     <string name="title_activity_cheak_lock">CheakLockActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
 
 
 </resources>

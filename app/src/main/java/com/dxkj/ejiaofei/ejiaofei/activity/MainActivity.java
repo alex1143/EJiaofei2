@@ -1,6 +1,9 @@
 package com.dxkj.ejiaofei.ejiaofei.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -20,6 +23,7 @@ import com.dxkj.ejiaofei.ejiaofei.fragment.HomeFragment;
 import com.dxkj.ejiaofei.ejiaofei.fragment.MeFragment;
 import com.dxkj.ejiaofei.ejiaofei.fragment.OrderFragment;
 import com.dxkj.ejiaofei.ejiaofei.fragment.ServierFragment;
+import com.dxkj.ejiaofei.ejiaofei.utils.ExampleUtil;
 import com.tencent.connect.auth.QQAuth;
 import com.tencent.open.wpa.WPA;
 
@@ -50,12 +54,33 @@ public class MainActivity extends AppCompatActivity {
     public MeFragment mMeFragment;
     public FragmentAdapter mFtdapter;
 
+    public static boolean isForeground = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        registerMessageReceiver();
         initFragment();
+    }
+
+    @Override
+    protected void onResume() {
+        isForeground = true;
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        isForeground = false;
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(mMessageReceiver);
+        super.onDestroy();
     }
 
     /**
@@ -65,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         mFtViewPager = (ViewPager) findViewById(R.id.fragment_pager);
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mToolbar = (Toolbar) findViewById(R.id.tool_bar);
+//        JPushInterface.init(getApplicationContext());
         titles = new ArrayList<>();
         setToolbar();                                                               //设置toolbar和mTabLayout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -107,11 +133,11 @@ public class MainActivity extends AppCompatActivity {
             //点击NavigationView中定义的menu item时触发反应
             switch (menuItem.getItemId()) {
                 case R.id.menu_publicnews:                             //暂时为qq登录
-                    QQAuth mqqAuth = QQAuth.createInstance("1104809073",MainActivity.this); // 10000000为你申请的APP_ID,mContext是上下文
+                    QQAuth mqqAuth = QQAuth.createInstance("1104809073", MainActivity.this); // 10000000为你申请的APP_ID,mContext是上下文
                     WPA mWPA = new WPA(MainActivity.this, mqqAuth.getQQToken());
                     String ESQ = "2850314360";  //512821255为客服QQ号
                     String text = "aaaaa";
-                    int ret = mWPA.startWPAConversation(MainActivity.this,ESQ, "你好，我正在乐宠看这个商品~\n"+text);
+                    int ret = mWPA.startWPAConversation(MainActivity.this, ESQ, "你好，我正在乐宠看这个商品~\n" + text);
                     if (ret != 0) { //如果ret不为0，就说明调用SDK出现了错误
                         Toast.makeText(MainActivity.this,
                                 "抱歉，联系客服出现了错误~. error:" + ret,
@@ -124,9 +150,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent1);
 //                    mFtViewPager.setCurrentItem(1);
                     break;
-                case R.id.menu_order:
+                case R.id.menu_order:                                 //暂时为验证手势密码
                     Intent intent2 = new Intent();
-                    intent2.setClass(MainActivity.this,CheakLockActivity.class);
+                    intent2.setClass(MainActivity.this, CheakLockActivity.class);
                     startActivity(intent2);
 //                    mFtViewPager.setCurrentItem(2);
                     break;
@@ -177,6 +203,39 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    //for receive customer msg from jpush server
+    private MessageReceiver mMessageReceiver;
+    public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_MESSAGE = "message";
+    public static final String KEY_EXTRAS = "extras";
+
+    public void registerMessageReceiver() {
+        mMessageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction(MESSAGE_RECEIVED_ACTION);
+        registerReceiver(mMessageReceiver, filter);
+    }
+
+    public class MessageReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
+                String messge = intent.getStringExtra(KEY_MESSAGE);
+                String extras = intent.getStringExtra(KEY_EXTRAS);
+                StringBuilder showMsg = new StringBuilder();
+                showMsg.append(KEY_MESSAGE + " : " + messge + "\n");
+                if (!ExampleUtil.isEmpty(extras)) {
+                    showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
+                }
+            }
+        }
+    }
+
 
     @Override
     public void onBackPressed() {
